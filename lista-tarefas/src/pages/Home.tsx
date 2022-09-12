@@ -1,5 +1,5 @@
 import React, { ReactEventHandler, useCallback, useState } from "react"
-
+import { FaTrash , FaEdit} from 'react-icons/fa'
 
 export const Home = () => {
 
@@ -29,7 +29,7 @@ export const Home = () => {
     <button onClick={addItem}>Adicionar Item</button>
       <ul>
         {itemList.map((item:any) => (
-          <li><input type= "checkbox" />{item}</li>
+          <li><input type= "checkbox" />{item}<FaTrash /> <FaEdit /></li>
         ))}
       </ul>
          </div>
