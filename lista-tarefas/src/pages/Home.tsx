@@ -1,15 +1,21 @@
 import { Button, Checkbox } from "@mui/material";
+import zIndex from "@mui/material/styles/zIndex";
 import React from "react";
 import { useState, useEffect} from "react"
 import { FaTrash , FaEdit} from 'react-icons/fa'
 import './home.css'
 
+interface IListItem{
+  id: number;
+  title: string;
+  state : boolean;
+}
 
 
 export const Home = (props :any) => {
 
 
-    const [item, setItem]:any = useState('');
+    const [item, setItem] = useState<IListItem[]>([]);
     const [itemList, setItemList]:any = useState([])
     const [check , setCheck] :any = useState()
 
@@ -28,11 +34,12 @@ export const Home = (props :any) => {
       }
 
       const teste =(e:any) =>{
-        
-        setCheck(!check)
+       setCheck(!check)
+        console.log (check)
+  
       }
+      
 
-    
     return(
         <div className="container">
             <h1>Minhas Tarefas</h1>
@@ -40,7 +47,7 @@ export const Home = (props :any) => {
         <Button variant="text" className="Button" onClick={addItem}>➕</Button>
       <ul>
         {itemList.map((item:any, index:any) => (
-          <li><Checkbox checked={check} onChange={teste} inputProps={{ 'aria-label': 'controlled' }} /><div id={index} className={`sublinhado ${check ? 'sublinhado-activate' : 'sublinhado-desactivate'}`}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
+          <li  id={index}><input type="checkbox" onClick={teste} /><div className={`sublinhado ${check ? 'sublinhado-activate' : 'sublinhado-desactivate'}`}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
         ))}
       </ul>
          </div>
