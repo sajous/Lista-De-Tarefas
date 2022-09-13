@@ -12,7 +12,6 @@ export const Home = (props :any) => {
     const [item, setItem]:any = useState('');
     const [itemList, setItemList]:any = useState([])
     const [check , setCheck] :any = useState()
-    const [letra , setLetra] :any = useState()
 
     const addItem = () => {
         if( item.length === 0) return;
@@ -28,13 +27,11 @@ export const Home = (props :any) => {
         }
       }
 
-      const teste = (props: any) => { 
-        setLetra((e:any) => check ? "'risca'" : "text-decoration: underline wavy red;");
-        var teste1 = letra
-        props.teste = teste1
-        console.log(props.teste)
-      };
+      const teste =(e:any) =>{
+        setCheck(!check)
+      }
 
+    
     return(
         <div className="container">
             <h1>Minhas Tarefas</h1>
@@ -42,7 +39,7 @@ export const Home = (props :any) => {
         <Button variant="text" className="Button" onClick={addItem}>➕</Button>
       <ul>
         {itemList.map((item:any) => (
-          <li><Checkbox checked={check} onChange={teste} inputProps={{ 'aria-label': 'controlled' }} /><div style={props.teste}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
+          <li><Checkbox checked={check} onChange={teste} inputProps={{ 'aria-label': 'controlled' }} /><div className={`sublinhado ${check ? 'sublinhado-activate' : 'sublinhado-desactivate'}`}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
         ))}
       </ul>
          </div>

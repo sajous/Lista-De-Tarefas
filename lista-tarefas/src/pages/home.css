@@ -48,3 +48,11 @@ a {
     margin-right: 20px;
     margin-top: 10px;
 }
+
+.sublinhado-desactivate{
+    text-decoration: initial;
+}
+
+.sublinhado-activate{
+    text-decoration: line-through;
+}
