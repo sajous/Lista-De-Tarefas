@@ -1,5 +1,7 @@
+import { Button, Checkbox, TextField } from "@mui/material";
 import React, { ReactEventHandler, useCallback, useState } from "react"
 import { FaTrash , FaEdit} from 'react-icons/fa'
+import './home.css'
 
 export const Home = () => {
 
@@ -23,13 +25,13 @@ export const Home = () => {
 
 
     return (
-        <div>
-            <h1>Lista de Compras</h1>
+        <div className="container">
+            <h1>Minhas Tarefas</h1>
       <input type="text" placeholder="Item" value={item} name="item" onChange = {e => setItem(e.target.value)} onKeyDown={handleKeyPress} />
-    <button onClick={addItem}>Adicionar Item</button>
+        <Button variant="text" className="Button" onClick={addItem}>➕</Button>
       <ul>
         {itemList.map((item:any) => (
-          <li><input type= "checkbox" />{item}<FaTrash /> <FaEdit /></li>
+          <li><Checkbox inputProps={{ 'aria-label': 'controlled' }} />{item}<a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
         ))}
       </ul>
          </div>
