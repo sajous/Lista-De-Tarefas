@@ -28,6 +28,7 @@ export const Home = (props :any) => {
       }
 
       const teste =(e:any) =>{
+        
         setCheck(!check)
       }
 
@@ -38,8 +39,8 @@ export const Home = (props :any) => {
       <input type="text" placeholder="Item" value={item} name="item" onChange = {e => setItem(e.target.value)} onKeyDown={handleKeyPress} />
         <Button variant="text" className="Button" onClick={addItem}>➕</Button>
       <ul>
-        {itemList.map((item:any) => (
-          <li><Checkbox checked={check} onChange={teste} inputProps={{ 'aria-label': 'controlled' }} /><div className={`sublinhado ${check ? 'sublinhado-activate' : 'sublinhado-desactivate'}`}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
+        {itemList.map((item:any, index:any) => (
+          <li><Checkbox checked={check} onChange={teste} inputProps={{ 'aria-label': 'controlled' }} /><div id={index} className={`sublinhado ${check ? 'sublinhado-activate' : 'sublinhado-desactivate'}`}>{item}</div><a href=""><FaTrash /></a> <a href=""><FaEdit /></a></li>
         ))}
       </ul>
          </div>

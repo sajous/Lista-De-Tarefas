@@ -46,13 +46,16 @@ a {
     color: #000000;
     float: right ;
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: -40px;
+    margin-bottom: 20px;
 }
 
 .sublinhado-desactivate{
     text-decoration: initial;
+    text-align: center;
 }
 
 .sublinhado-activate{
     text-decoration: line-through;
+    text-align: center;
 }
